@@ -1,6 +1,8 @@
 # The ESP-IDF version every factory image must be built with (tools/build_factory.sh
-# enforces this). The original 1.5.0 release was built with an unrecorded IDF, so
-# the pin reads "unset" until it is captured from a hardware-verified image:
-#   esptool.py image_info <app.bin>     -> "ESP-IDF: vX.Y.Z"
-# Write that exact version on the last non-comment line, then rebuild.
-unset
+# enforces this). Captured 2026-10-29 from the app descriptor of the distributed
+# v1.5.0 factory image (bedge117/m1-esp32-brain release tag v1.5.0):
+#   esptool image_info -> "ESP-IDF: v5.1.2-dirty"
+# CAVEAT: "-dirty" means the original build used a locally modified v5.1.2 tree,
+# so even a clean v5.1.2 rebuild is not guaranteed bit-identical. Build with
+# v5.1.2 and compare hashes against PROVENANCE.md before shipping.
+v5.1.2
