@@ -1,0 +1,6 @@
+# The ESP-IDF version every factory image must be built with (tools/build_factory.sh
+# enforces this). The original 1.5.0 release was built with an unrecorded IDF, so
+# the pin reads "unset" until it is captured from a hardware-verified image:
+#   esptool.py image_info <app.bin>     -> "ESP-IDF: vX.Y.Z"
+# Write that exact version on the last non-comment line, then rebuild.
+unset

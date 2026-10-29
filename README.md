@@ -25,3 +25,13 @@ fetches the current factory image and writes it at `0x0`.
 
 - `factory_m1-esp32-brain.bin` — full image (bootloader + partition table + app), flash at `0x0`
 - `app_m1-esp32-brain.bin` — app partition only, flash at `0x60000` (only when the bootloader/partition table are unchanged)
+
+## Building
+
+Use `tools/build_factory.sh` after sourcing ESP-IDF's `export.sh`. It enforces
+the ESP-IDF pin in `tools/IDF_PIN` (currently `unset` — the original 1.5.0
+build's IDF was never recorded; see [PROVENANCE.md](PROVENANCE.md) for how to
+capture it from a hardware-verified image), builds from the committed
+`sdkconfig.defaults`, merges the factory image, and emits a provenance
+manifest. Do not hand-roll factory images: an untracked toolchain or sdkconfig
+produces an image that cannot be reproduced or audited.
